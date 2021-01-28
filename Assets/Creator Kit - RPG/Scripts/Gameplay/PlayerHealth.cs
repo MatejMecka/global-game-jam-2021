@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -25,20 +26,31 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentHealth < startingHealth && !dead)
+        {
+            if(timer > regainTime)
+            {
+                currentHealth += healthRegenValue;
+                //HealthBar.value = currentHealth;
+                timer = 0;
+            }
+
+            timer += Time.deltaTime;
+
+        }   
     }
 
     // Get resources
     void Awake()
     {
-        playerMovement = GetComponent<Movement>();
+       // playerMovement = GetComponent<Movement>();
         playerAudio = GetComponent<AudioSource>();
 
         currentHealth = startingHealth;
-        camera = GetComponent<CameraShake>();
+        //camera = GetComponent<CameraShake>();
     }
 
-    
+
 
      public void TakeDamage(int amount){
 
@@ -60,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio.clip = deathClip;
         playerAudio.Play();
         SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
-        playerMovement.movementDisabled = true;
+        //playerMovement.movementDisabled = true;
     }
 
 }
