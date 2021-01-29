@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     bool dead;
     bool damaged;
-    float timer;
+    float timer;	
 
     public float regainTime = 0.2f;
     public int healthRegenValue = 1;
