@@ -11,6 +11,8 @@ namespace RPGM.UI
     {
         public float stepSize = 0.1f;
         GameModel model = Schedule.GetModel<GameModel>();
+        public GameObject Ball;
+        public int rotationSide = 0;
 
         public enum State
         {
@@ -36,6 +38,17 @@ namespace RPGM.UI
             }
         }
 
+        private void FixedUpdate(){
+            if (Input.GetKey(KeyCode.LeftArrow))
+                rotationSide = 1;
+            else if (Input.GetKey(KeyCode.RightArrow))
+                rotationSide = 3;
+            else if (Input.GetKey(KeyCode.DownArrow))
+                rotationSide = 0;
+            else if (Input.GetKey(KeyCode.UpArrow))
+                rotationSide = 2;
+        }
+
         void DialogControl()
         {
             model.player.nextMoveCommand = Vector3.zero;
@@ -57,6 +70,22 @@ namespace RPGM.UI
                 model.player.nextMoveCommand = Vector3.left * stepSize;
             else if (Input.GetKey(KeyCode.RightArrow))
                 model.player.nextMoveCommand = Vector3.right * stepSize;
+            else if (Input.GetKeyDown(KeyCode.C)){
+                GameObject BallInstance = Instantiate(Ball, transform.position, transform.rotation);
+                Rigidbody2D BallRigidbody = BallInstance.GetComponent<Rigidbody2D>();
+                if (rotationSide == 1)
+                    BallRigidbody.AddForce(new Vector2(-80, 0), ForceMode2D.Impulse);
+                else if (rotationSide == 0)
+                    BallRigidbody.AddForce(new Vector2(0, -80), ForceMode2D.Impulse); 
+                else if (rotationSide == 2)
+                    BallRigidbody.AddForce(new Vector2(0, 80), ForceMode2D.Impulse); 
+                else if (rotationSide == 3)
+                    BallRigidbody.AddForce(new Vector2(180, 0), ForceMode2D.Impulse); 
+                
+
+                Destroy(BallInstance, 0.5f);
+            }
+
             else
                 model.player.nextMoveCommand = Vector3.zero;
         }
