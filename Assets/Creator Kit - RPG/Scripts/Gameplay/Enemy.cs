@@ -43,7 +43,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) > 0 && Vector2.Distance(transform.position, target.position) < 30){
+        if(Vector2.Distance(transform.position, target.position) > 0 && Vector2.Distance(transform.position, target.position) < 20){
+        	Debug.Log("exec")
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }	
 
