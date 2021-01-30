@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if(Vector2.Distance(transform.position, target.position) > 0 && Vector2.Distance(transform.position, target.position) < 20){
-        	Debug.Log("exec")
+        	Debug.Log("exec");
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }	
 
