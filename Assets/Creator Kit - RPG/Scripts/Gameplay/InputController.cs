@@ -80,11 +80,11 @@ namespace RPGM.UI
                 else if (rotationSide == 2)
                     BallRigidbody.AddForce(new Vector2(0, 80), ForceMode2D.Impulse); 
                 else if (rotationSide == 3)
-                    BallRigidbody.AddForce(new Vector2(180, 0), ForceMode2D.Impulse); 
+                    BallRigidbody.AddForce(new Vector2(80, 0), ForceMode2D.Impulse); 
                 
 
                 Destroy(BallInstance, 0.5f);
-            }
+            } 
 
             else
                 model.player.nextMoveCommand = Vector3.zero;
