@@ -18,7 +18,7 @@ public class WrongPathMate : MonoBehaviour
     void OnMovieFinished(VideoPlayer player){
     	Debug.Log("Executed");
     	player.Stop();
-    	SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+    	SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
     }
 
 

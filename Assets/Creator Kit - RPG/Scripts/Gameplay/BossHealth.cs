@@ -12,7 +12,7 @@ public class BossHealth : MonoBehaviour
     bool damaged;
     float timer;	
 
-    public float regainTime = 0.2f;
+    public float regainTime = 5.2f;
     public int healthRegenValue = 1;
 
     AudioSource playerAudio;
@@ -69,12 +69,13 @@ public class BossHealth : MonoBehaviour
 
     void Death(){
         dead = true;
-        SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Win", LoadSceneMode.Single);
         //playerMovement.movementDisabled = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("YES");
         if (collision.gameObject.tag == "bullet")
         {
             TakeDamage(5);
