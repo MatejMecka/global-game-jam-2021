@@ -69,9 +69,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Death(){
         dead = true;
-        playerAudio.clip = deathClip;
-        playerAudio.Play();
-        SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
+        //playerAudio.clip = deathClip;
+        //playerAudio.Play();
+        SceneManager.LoadScene("WrongPath", LoadSceneMode.Single);
         //playerMovement.movementDisabled = true;
     }
 
