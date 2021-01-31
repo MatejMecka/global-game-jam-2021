@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Creator Kit - RPG/Scenes/EndScene.unity
     guid: aebd34a443bc61152a4617b0dc1ebc7d
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 875df56541a7a4aee80a4bbcd9c0973e
+  - enabled: 1
+    path: Assets/Scenes/Scene 2.unity
+    guid: a295162e08d424816bb98be4034deb3d
+  - enabled: 1
+    path: Assets/Scenes/scene 3.unity
+    guid: 4be6f9e05d3724ab2884f39877917808
   m_configObjects: {}
