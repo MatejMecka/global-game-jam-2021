@@ -75,4 +75,13 @@ public class PlayerHealth : MonoBehaviour
         //playerMovement.movementDisabled = true;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            TakeDamage(20);
+            collision.gameObject.tag = "Untagged";
+            Destroy(collision.gameObject);
+        }
+    }
 }

@@ -12,6 +12,8 @@ namespace RPGM.UI
         public float stepSize = 0.1f;
         GameModel model = Schedule.GetModel<GameModel>();
         public GameObject Ball;
+
+        public Transform player;
         public int rotationSide = 0;
 
         public enum State
@@ -71,7 +73,7 @@ namespace RPGM.UI
             else if (Input.GetKey(KeyCode.RightArrow))
                 model.player.nextMoveCommand = Vector3.right * stepSize;
             else if (Input.GetKeyDown(KeyCode.C)){
-                GameObject BallInstance = Instantiate(Ball, transform.position, transform.rotation);
+                GameObject BallInstance = Instantiate(Ball, player.position, player.rotation);
                 Rigidbody2D BallRigidbody = BallInstance.GetComponent<Rigidbody2D>();
                 if (rotationSide == 1)
                     BallRigidbody.AddForce(new Vector2(-80, 0), ForceMode2D.Impulse);
