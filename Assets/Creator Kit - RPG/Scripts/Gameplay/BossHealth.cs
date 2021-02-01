@@ -75,9 +75,10 @@ public class BossHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("YES");
-        if (collision.gameObject.tag == "bullet")
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "player_bullet" || collision.gameObject.tag == "Untagged")
         {
+            Debug.Log("EXEC");
             TakeDamage(5);
             collision.gameObject.tag = "Untagged";
         }
